@@ -6,18 +6,15 @@
 
 // Return True or False in every situation
 module.exports = (customerMoney, isMovieFull, rating, age, isParentWith) => {
-    if (customerMoney >= 8 && isMovieFull === false){
-        if(rating=="PG"){
-            return true;
-        }
-        else if (rating =="R" && age >=17 || isParentWith==true){
-                return true;
-             
-         } 
-        else {
-            return false;
-        }
-    }
-    return false;
+  const movieCheck = [
+    { minMoney: 8, movieFull: false, movieRating: "PG",  minAge: 0},
+    {minMoney: 8,movieFull: false,movieRating: "R", minAge: 17}
+  ];
+    return movieCheck.some(
+      (item) =>
+        customerMoney >= item.minMoney &&
+        isMovieFull == item.movieFull &&
+        rating == item.movieRating &&
+        (isParentWith || age >= item.minAge)
+    );
 };
-

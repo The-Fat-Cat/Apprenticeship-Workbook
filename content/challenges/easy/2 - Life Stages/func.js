@@ -7,22 +7,13 @@
 // Greater than 19 and less than 30 is 'Young Adult'
 // Greater than 30 is 'Dead'
 module.exports = (age) => {
-    if (age <2){
-        return "Baby";
-    }
-    else if (age >2 && age <13){
-        return "Kid";
-    }
-    else if (age >13 && age <19){
-        return "Teen";
-    }
-    else if (age >13 && age <19){
-        return "Young Adult";
-    }
-    else if (age >19 && age <30){
-        return "Young Adult";
-    }
-    else {
-        return "Dead";
-    }
+    const ageCheck = [
+        { maxAge: 2, value: "Baby"},
+        { maxAge: 12, value: "Kid"},
+        { maxAge: 18, value: "Teen"},
+        { maxAge: 29, value: "Young Adult"},
+        { maxAge: 1000, value: "Dead"},
+
+    ];
+   return ageCheck.find((item) => age <= item.maxAge).value;
 }

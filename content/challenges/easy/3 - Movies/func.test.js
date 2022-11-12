@@ -13,5 +13,5 @@ test('under 17, parent is there, TRUE', () => {
     expect(func(9.5, false, 'R', 16, true)).toEqual(true);
 });
 test('Enough money, movie isn\'t full, over 17, TRUE', () => {
-    expect(func(9.5, false, 'R', 29, true)).toEqual(true);
+    expect(func(0, false, 'R', 29, true)).toEqual(false);
 });

@@ -3,23 +3,13 @@
 module.exports = (str) => {
   //created a variable that is going to hold the new string and one that contains characters not allowed
   const sChars = ["!", "@", "#", "$", "%", "^", "&", "\\", "*", "(", ")"];
-  let newString = "";
-  // outer for loop goes through each elements in the string and inner loop goes through each element in sChars
-  // For every iteration of the outer loop str[strLetIndex] will compare to the whole list of sChars and will add it to new string if it doesn't match
-  //and do nothing if it does
-  for (let strLetIndex = 0; strLetIndex <= str.length; strLetIndex++) {
-    let isMatch = false;
-    for (let sCharsIndex = 0; sCharsIndex <= sChars.length; sCharsIndex++) {
-      if (str[strLetIndex] == sChars[sCharsIndex]) {
-        isMatch = true;
-      }
-    }
-    if (isMatch == false) {
-      newString += str[strLetIndex];
-    }
-  }
-  return newString;
+  let stringArr = [...str];
+  let newArr = stringArr.filter(element => !sChars.includes(element));
+  return newArr.join("");
 };
 
-// let specialCharRegex = /[^a-zA-Z0-9_\-\. ]/g;
-// return str.replace(specialCharRegex, '');
+// let resultString = [...str].reduce((previousValue , currentValue) => {
+//   let value = !sChars.includes(currentValue) ? currentValue : "";
+//   return previousValue + value;
+// }, "");
+// return resultString;
